@@ -1,0 +1,42 @@
+The forex market is the largest financial market in the world, 
+trading around $4 trillion each day, trading 24/7.
+
+There are four "major" currency pairs, EUR/USD, USD/JPY, GBP/USD, USD/CHF, 
+and the three commodity pairs, USD/CAD, AUD/USD, NZD/USD. 
+
+We have 3 components:
+trading platform (that's what I wolf does, compare with metastock)
+market data vendor (signal provider)
+brokerage support
+
+existing trading platrorms for trading, technical and fundamental analysis:
+metatrader is free you can have a demo account (no brokerage needed)
+my account is 
+login 63686
+passwd 4qxfefe
+investor em8lteg
+run: wine "C:\Program Files\MetaTrader 5\terminal64.exe"
+the only option you have is stop.loss and take.profit
+
+ninjatrader historical EOD data free, 
+real life data start at 50$/month + 55$/month 
+for real time data from kinetick
+
+metastock
+
+To get forex pre-processed data we have to pay.
+5-10k for one year of data
+Signals are
+20-400$/month depending on refresh rate
+
+for forex free data:
+historical data:
+histdata.com - one month of ticks of one symbol is ~30MB
+
+one year of ticks of 7 main symbols is 2.5GB
+
+signal data:
+Compass Reading FX
+
+gdelt - look up events
+phantomjs - scrape histdata.com

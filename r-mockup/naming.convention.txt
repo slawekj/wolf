@@ -1,0 +1,16 @@
+information about current balance:
+_SELF:BALANCE
+_SELF:TOTAL:VALUE
+
+information about company XYZ:
+
+XYZ:PRICE
+XYZ:HQ:LOC:LA
+XYZ:HQ:LOC:LO
+XYZ:FOUNDED:DATE
+XYZ:CEO
+
+information from FOREX:
+
+FOREX:USD:TO:EUR
+
