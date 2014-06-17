@@ -1,0 +1,58 @@
+ * Running on http://127.0.0.1:5000/
+ * Restarting with reloader
+127.0.0.1 - - [16/Jun/2014 12:05:11] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 12:05:12] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 12:05:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 12:23:57] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 12:24:09] "GET /index.json HTTP/1.1" 404 -
+127.0.0.1 - - [16/Jun/2014 12:24:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 12:24:29] "GET /index HTTP/1.1" 404 -
+127.0.0.1 - - [16/Jun/2014 12:24:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 12:24:39] "GET /index.html HTTP/1.1" 404 -
+127.0.0.1 - - [16/Jun/2014 12:25:11] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 12:30:26] "GET /?callback=jQuery18301082936585880816_1402947025455&_=1402947026597 HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 12:30:29] "GET /?callback=jQuery18305817242036573589_1402947028761&_=1402947029344 HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 12:35:34] "GET /?callback=jQuery18301320996719878167_1402947333447&_=1402947334250 HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 12:42:34] "GET / HTTP/1.1" 200 -
+Unhandled exception in thread started by <function foo at 0x177fc08>
+Traceback (most recent call last):
+  File "server.py", line 34, in foo
+    cursor.execute(q)
+  File "/usr/lib/python2.7/site-packages/cql/cursor.py", line 80, in execute
+    response = self.get_response(prepared_q, cl)
+  File "/usr/lib/python2.7/site-packages/cql/thrifteries.py", line 77, in get_response
+    return self.handle_cql_execution_errors(doquery, compressed_q, compress, cl)
+  File "/usr/lib/python2.7/site-packages/cql/thrifteries.py", line 98, in handle_cql_execution_errors
+    raise cql.ProgrammingError("Bad Request: %s" % ire.why)
+cql.apivalues.ProgrammingError: Bad Request: unable to coerce '2014-06-16 13:-1:01' to a  formatted date (long)
+Unhandled exception in thread started by <function foo at 0x23fec08>
+Traceback (most recent call last):
+  File "server.py", line 34, in foo
+    cursor.execute(q)
+  File "/usr/lib/python2.7/site-packages/cql/cursor.py", line 80, in execute
+    response = self.get_response(prepared_q, cl)
+  File "/usr/lib/python2.7/site-packages/cql/thrifteries.py", line 77, in get_response
+    return self.handle_cql_execution_errors(doquery, compressed_q, compress, cl)
+  File "/usr/lib/python2.7/site-packages/cql/thrifteries.py", line 98, in handle_cql_execution_errors
+    raise cql.ProgrammingError("Bad Request: %s" % ire.why)
+cql.apivalues.ProgrammingError: Bad Request: unable to coerce '2014-06-16 13:-1:02' to a  formatted date (long)
+127.0.0.1 - - [16/Jun/2014 13:18:34] "GET /?format=json HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 13:20:00] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 13:20:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 13:20:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 13:20:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 13:20:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 13:20:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 13:20:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 13:20:30] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 13:20:31] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 13:20:32] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 13:20:34] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 13:20:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 13:22:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 13:22:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 13:22:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 13:22:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 13:22:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 13:22:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [16/Jun/2014 13:22:07] "GET / HTTP/1.1" 200 -
