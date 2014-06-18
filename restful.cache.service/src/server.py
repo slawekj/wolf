@@ -60,7 +60,7 @@ tasks = {'NZDUSD':0}
 
 def foo(x):
 	while True:
-		date = datetime.datetime.now()
+		date = datetime.datetime.utcnow()
 
 		today = str(date.year) + "-" + str(date.month).zfill(2) + "-" + str(date.day).zfill(2)
 
@@ -70,7 +70,7 @@ def foo(x):
 		q = q + "pair_day = '" + "NZDUSD" + ":" + today + "'"
 		q = q + " and "
 		q = q + " issued_at > '" + today + " " + str(date.hour).zfill(2)
-		q = q +  ":" + str(date.minute - 1).zfill(2) + ":" + str(date.second).zfill(2) + "'"
+		q = q +  ":" + str(date.minute - 1).zfill(2) + ":" + str(date.second).zfill(2) + "+0000'"
 		#q = q + " limit 10"
 
 		#print q
@@ -85,7 +85,6 @@ def foo(x):
 			#d[0] = struct.unpack('!Q', d[0] )[0] 
 			d[0] = str(datetime.datetime.fromtimestamp(
 				struct.unpack('!Q', d[0])[0]/1e3 )
-				+ timedelta(hours=7)
 			)
 			#d[0] = str(datetime.datetime.fromtimestamp(
 			#	struct.unpack('!Q', d[0])[0]/1e3 ,
