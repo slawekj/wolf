@@ -69,7 +69,7 @@ for line in lines:
 	utc_s1         = utc_s1 + milisec + "+0000"
 
 	# sched doesn't support timezones
-	delta = 7 * 3600
+	delta = 8 * 3600
 
 	q = "INSERT INTO ticks (pair_day,issued_at,bid,ask) VALUES ("
 	q = q + "'" + forex_pair + ":" + year + "-" + month + "-" + day + "',"
