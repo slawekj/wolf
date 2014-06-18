@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<div>NZDUSD - last minute</div>
+<div>NZDUSD - last minute in local time</div>
 <div id="placeholder" style="width:600px;height:300px"></div>
 
 </body>

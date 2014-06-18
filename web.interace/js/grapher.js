@@ -17,7 +17,8 @@ $(function () {
 		function onDataReceived(json) {
 			timeout = 1000
 
-			var end   = new Date().getTime()
+			//var end   = new Date().getTime() + 7 * 3600 * 1000
+			var end   = new Date().getTime() 
 			var start = end - 60 * 1000
 
 			var plt_bid = [[start,prev_bid]]
@@ -35,10 +36,12 @@ $(function () {
 			}
 			plt_bid.push([end, prev_bid])
 			plt_ask.push([end, prev_ask])
-			//$.plot('#placeholder',[plt_bid, plt_ask],{ xaxis: {mode: "time", timezone: "browser"}})
+			$.plot('#placeholder',[plt_bid, plt_ask],{ xaxis: {mode: "time", timezone: "browser"}})
 			$.plot('#placeholder',
 				[{label: "bid", data: plt_bid}, {label: "ask", data: plt_ask}],
 				{ xaxis: {mode: "time", timezone: "browser"}})
+
+
 		}
 
 		$.ajax({
