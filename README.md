@@ -23,3 +23,13 @@ git clone http://github.com/slawekj/wolf.git
 ./wolf/<module name>/bin/install.sh
 ./wolf/<module name>/bin/run.sh
 ```
+Modules should be deployed in the following order:
+  1. data.router
+  2. data.provider
+  3. rule.engine
+  4. data.aggregator.rt
+  5. data.aggregator.batch
+  6. restful.cache.rt
+  7. restful.cache.batch
+  8. restful.rule.submission
+  9. web.interface
