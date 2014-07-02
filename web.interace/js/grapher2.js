@@ -1,16 +1,20 @@
 $(function () {
-	var timeout = 500
-	var prev_bid = {'AUDUSD':0,'EURUSD':0,'GBPUSD':0,'NZDUSD':0,'USDCAD':0,'USDCHF':0,'USDJPY':0}
-	var prev_ask = {'AUDUSD':0,'EURUSD':0,'GBPUSD':0,'NZDUSD':0,'USDCAD':0,'USDCHF':0,'USDJPY':0}
-	var pairs    = ['AUDUSD','EURUSD','GBPUSD','NZDUSD','USDCAD','USDCHF','USDJPY']
+	var timeout = 2000
+	var prev_bid = {'AUDUSD_avg_s':0,'EURUSD_avg_s':0,'GBPUSD_avg_s':0,'NZDUSD_avg_s':0,'USDCAD_avg_s':0,'USDCHF_avg_s':0,'USDJPY_avg_s':0}
+	var prev_ask = {'AUDUSD_avg_s':0,'EURUSD_avg_s':0,'GBPUSD_avg_s':0,'NZDUSD_avg_s':0,'USDCAD_avg_s':0,'USDCHF_avg_s':0,'USDJPY_avg_s':0}
+	var pairs    = ['AUDUSD_avg_s','EURUSD_avg_s','GBPUSD_avg_s','NZDUSD_avg_s','USDCAD_avg_s','USDCHF_avg_s','USDJPY_avg_s']
 
 	function resetPlots() {
 		for (p_i = 0; p_i < pairs.length; ++p_i) {
-			var n = pairs[p_i]
-			var p = '#placeholder-'.concat(n)
-			$.plot(p,[])
-			$(p).append("<div style='position:absolute;left:" + 
-			10 + "px;top:" + 10 + "px;color:#666;font-size:smaller'>" + n + " waiting for the data...</div>");
+			var n  = pairs[p_i]
+			var p  = '#placeholder-'.concat(n)
+			var id = 'container-'.concat(n)
+			if (document.getElementById(id).style.width!="0px" &&
+				document.getElementById(id).style.height!="0px") {
+				$.plot(p,[])
+				$(p).append("<div style='position:absolute;left:" + 
+				10 + "px;top:" + 10 + "px;color:#666;font-size:smaller'>" + n + " waiting for the data...</div>");
+			}
 		}
 	}
 
@@ -18,9 +22,9 @@ $(function () {
 		function onError() {
 			resetPlots();
 		}
-function onDataReceived(json) {
+		function onDataReceived(json) {
 			var end   = new Date().getTime() 
-			var start = end - 60 * 1000
+			var start = end - 60 * 60 * 1000
 			for (p_i = 0 ; p_i < pairs.length; ++p_i) {
 				p = pairs[p_i]
 				var plt_bid = [[start,prev_bid[p]]]
@@ -53,7 +57,7 @@ function onDataReceived(json) {
 
 		$.ajax({
 			cache: false,
-			url: "http://54.183.118.189:5000",
+			url: "http://54.183.118.189:5006",
 			type: "GET",
 			dataType: "json",
 			success: onDataReceived,

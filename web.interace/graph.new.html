@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="./css/examples.css" rel="stylesheet" type="text/css">
+<link href="./css/jquery-ui.min.css" rel="stylesheet" type="text/css">
+<script language="javascript" type="text/javascript" src="./js/flot/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="./js/flot/examples/shared/jquery-ui/jquery-ui.min.js"></script>
+<script language="javascript" type="text/javascript" src="./js/flot/jquery.flot.js"></script>
+<script language="javascript" type="text/javascript" src="./js/flot/jquery.flot.time.js"></script>
+<script language="javascript" type="text/javascript" src="./js/flot/jquery.flot.selection.js"></script>
+<script language="javascript" type="text/javascript" src="./js/grapher.js"></script>
+<script language="javascript" type="text/javascript" src="./js/grapher2.js"></script>
+<script language="javascript" type="text/javascript" src="./js/details.js"></script>
+<script language="javascript" type="text/javascript" src="./js/timer.js"></script>
+<script language="javascript" type="text/javascript" src="./js/rule-creator.js"></script>
+</head>
+<body>
+
+<div id="content" style="float: left">
+<!--<h1>Welcome to Wolf <div id="timer" style="font-size:x-large; position: relative; left: 10%; float: left"></div></h1>-->
+<h1>
+<div id="timer" style="font-size:x-large; position: relative; left: 1%; float: left"></div>
+</h1>
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<div id='container-AUDUSD' class='demo-container'>
+<div id='placeholder-AUDUSD' class='demo-placeholder'>
+</div>
+</div>
+</td>
+<td>
+<div id='container-EURUSD' class='demo-container'>
+<div id='placeholder-EURUSD' class='demo-placeholder'>
+</div>
+</div>
+</td>
+<td>
+<div id='container-GBPUSD' class='demo-container'>
+<div id='placeholder-GBPUSD' class='demo-placeholder'>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div id='container-NZDUSD' class='demo-container'>
+<div id='placeholder-NZDUSD' class='demo-placeholder'>
+</div>
+</div>
+</td>
+<td>
+<div id='container-USDCAD' class='demo-container'>
+<div id='placeholder-USDCAD' class='demo-placeholder'>
+</div>
+</div>
+</td>
+<td>
+<div id='container-USDCHF' class='demo-container'>
+<div id='placeholder-USDCHF' class='demo-placeholder'>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div id='container-USDJPY' class='demo-container'>
+<div id='placeholder-USDJPY' class='demo-placeholder'>
+</div>
+</div>
+</td>
+<td>
+<div id='container-rule-listing' class='demo-container'>
+	&nbsp;Active trading rules:
+	<textarea readonly style="width: 95%; height: 82%; position: relative; left: 2%; resize: none"></textarea>
+</div>
+</td>
+<td>
+<div id='container-rule-creator' class='demo-container'>
+	&nbsp;Submit new trading rule:
+	</br>
+	&nbsp;If&nbsp; 
+	<select id='rule-creator-range'>
+		<option value="VALUE">LATEST</option>
+	</select>
+	<select id='rule-creator-modifier'>
+		<option value="BID">BID</option>
+		<option value="ASK">ASK</option>
+	</select>
+	&nbsp;of&nbsp;
+	<select id='rule-creator-symbol'>
+		<option value="AUDUSD">AUDUSD</option>
+		<option value="EURUSD">EURUSD</option>
+		<option value="GBPUSD">GBPUSD</option>
+		<option value="NZDUSD">NZDUSD</option>
+		<option value="USDCAD">USDCAD</option>
+		<option value="USDCHF">USDCHF</option>
+		<option value="USDJPY">USDJPY</option>
+	</select>
+	</br>
+	&nbsp;is&nbsp;
+	<select id='rule-creator-comparator'>
+		<option value="<">LESS THAN</option>
+		<option value=">">MORE THAN</option>
+		<option value="=">EQUAL TO</option>
+	</select>
+	<input id='rule-creator-threshold' type="number" min="000.00000" max="999.99999" value="0.001" step="0.00100"></input>
+	then call api:
+	</br>
+	<textarea id='rule-creator-url' style="width: 95%; height: 36%; position: relative; left: 2%; resize: none">http://54.183.118.189:5004/</textarea>
+	</br>
+	<button id='rule-creator-submit' style="width: 96%; height: 15%; position: relative; left: 2%; top: 3%">submit</button>
+</div>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+<div id='container-AUDUSD_avg_s' class='demo-container' style="width: 0px; height: 0px">
+<div id='placeholder-AUDUSD_avg_s' class='demo-placeholder'>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+<div id='container-EURUSD_avg_s' class='demo-container' style="width: 0px; height: 0px">
+<div id='placeholder-EURUSD_avg_s' class='demo-placeholder'>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+<div id='container-GBPUSD_avg_s' class='demo-container' style="width: 0px; height: 0px">
+<div id='placeholder-GBPUSD_avg_s' class='demo-placeholder'>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+<div id='container-NZDUSD_avg_s' class='demo-container' style="width: 0px; height: 0px">
+<div id='placeholder-NZDUSD_avg_s' class='demo-placeholder'>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+<div id='container-USDCAD_avg_s' class='demo-container' style="width: 0px; height: 0px">
+<div id='placeholder-USDCAD_avg_s' class='demo-placeholder'>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+<div id='container-USDCHF_avg_s' class='demo-container' style="width: 0px; height: 0px">
+<div id='placeholder-USDCHF_avg_s' class='demo-placeholder'>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+<div id='container-USDJPY_avg_s' class='demo-container' style="width: 0px; height: 0px">
+<div id='placeholder-USDJPY_avg_s' class='demo-placeholder'>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</br>
+</body>
+</html>
