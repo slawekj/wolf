@@ -12,7 +12,8 @@ This project uses the following modules:
   4. Rule.engine is one of the consumers of events provided by data.router. It matches up rules with the current state of the market and executes the trades when the conditions specified in rules are met. It is built on top of [Storm](http://storm.incubator.apache.org/) event processor.
   5. Data.aggregator.rt is responsible for aggregating the latest ticks in real time. It is built on top of [Cassandra](http://cassandra.apache.org/) database.
   6. Data.aggregator.batch is responsible for aggregating a wide time range of ticks in batch, averaging them, and serving aggregated views to data.aggregator.rt. It is built on top of [HDFS](http://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), [Camus](https://github.com/linkedin/camus), and [Hive](https://hive.apache.org/).
-
+  7. Restful.cache.service.rt separates queries to the data.aggregator.rt database from clients. It uses in-memory cache to serve requests in real time.
+  8. Restful.cache.service.batch works exactly like restful.cache.service.rt but for the other types of queries.
 
 ### Getting started
 
