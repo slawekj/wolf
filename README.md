@@ -38,7 +38,7 @@ Modules should be deployed in the following order:
   8. restful.rule.submission (deployment scripts in preparation)
   9. web.interface (deployment scripts in preparation)
 
-Installation scripts are tested on Ubuntu 12.04 distribution, which is available [here](http://releases.ubuntu.com/12.04/ubuntu-12.04.4-server-amd64.iso). You should have git installed:
+Deployment scripts are tested on Ubuntu 12.04 distribution, which is available [here](http://releases.ubuntu.com/12.04/ubuntu-12.04.4-server-amd64.iso). You should sudo permissions and have git installed:
 ```
 sudo apt-get install git
 ```
