@@ -4,7 +4,7 @@ Trade foreign exchange with ease.
 ### Introduction
 Wolf Trading Platform is an interactive platform that supports real-time financial data visualization, as well as historical data lookup. It executes simple trading rules in real time and is simple to integrate with the brokerage services. It is currently available [here](http://ec2-54-183-118-188.us-west-1.compute.amazonaws.com/wolf/graph.new). This interface was tested on Google Chrome Version 35.0.1916.153.
 
-![alt text](https://github.com/slawekj/wolf/images/architecture.png "Architecture of Wolf")
+![alt text](https://github.com/slawekj/wolf/blob/master/images/architecture.png "Architecture of Wolf")
 
 Wolf uses the following modules:
 
