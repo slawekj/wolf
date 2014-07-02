@@ -1,0 +1,7 @@
+07 * * * * /home/ubuntu/data.aggregator/src/3.execute.sh &> /dev/null
+17 * * * * /home/ubuntu/data.aggregator/src/3.execute.sh &> /dev/null
+27 * * * * /home/ubuntu/data.aggregator/src/3.execute.sh &> /dev/null
+37 * * * * /home/ubuntu/data.aggregator/src/3.execute.sh &> /dev/null
+47 * * * * /home/ubuntu/data.aggregator/src/3.execute.sh &> /dev/null
+57 * * * * /home/ubuntu/data.aggregator/src/3.execute.sh &> /dev/null
+
