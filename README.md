@@ -19,6 +19,7 @@ Wolf uses the following modules:
 
 I am currently working on the deployment scripts, all the modules should be easy to deploy using the following commands:
 ```
-git clone http://github.com/slawekj/wolf/<module name>
-./<module name>/bin/start.sh
+git clone http://github.com/slawekj/wolf.git
+./wolf/<module name>/bin/install.sh
+./wolf/<module name>/bin/run.sh
 ```
