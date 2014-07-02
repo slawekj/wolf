@@ -13,8 +13,16 @@ ask float,
 PRIMARY KEY (pair_day, issued_at) 
 ) WITH compaction = {'class' : 'LeveledCompactionStrategy' };
 
-INSERT INTO ticks (pair_day,issued_at,bid,ask) VALUES ('usdjpy_monday','2011-02-03 04:05:00.020',12,13);
-INSERT INTO ticks (pair_day,issued_at,bid,ask) VALUES ('usdjpy_monday','2011-02-03 04:05:00.040',12,13);
-INSERT INTO ticks (pair_day,issued_at,bid,ask) VALUES ('usdjpy_monday','2011-02-03 04:05:00.060',12,13);
-INSERT INTO ticks (pair_day,issued_at,bid,ask) VALUES ('usdjpy_monday','2011-02-03 04:05:00.080',12,13);
-INSERT INTO ticks (pair_day,issued_at,bid,ask) VALUES ('usdjpy_monday','2011-02-03 04:05:00.100',12,13);
+INSERT INTO ticks (pair_day,issued_at,bid,ask) VALUES ('usdjpy:2011-02-03','2011-02-03 04:05:13.020+0000',0.12,0.13) USING TTL 3600;
+
+CREATE TABLE ticks_avg_s (
+pair_day text, 
+issued_at timestamp, 
+bid float, 
+ask float, 
+PRIMARY KEY (pair_day, issued_at) 
+) WITH compaction = {'class' : 'LeveledCompactionStrategy' };
+
+INSERT INTO ticks (pair_day,issued_at,bid,ask) VALUES ('usdjpy:2011-02-03','2011-02-03 04:05:00.000+0000',0.12,0.13) USING TTL 3600;
+
+
