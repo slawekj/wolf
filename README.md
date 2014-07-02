@@ -28,15 +28,15 @@ git clone https://github.com/slawekj/wolf.git
 ./wolf/<module name>/bin/run.sh
 ```
 Modules should be deployed in the following order:
-  1. data.router
-  2. data.provider
-  3. rule.engine
-  4. data.aggregator.rt
-  5. data.aggregator.batch
-  6. restful.cache.rt
-  7. restful.cache.batch
-  8. restful.rule.submission
-  9. web.interface
+  1. data.router (deployment scripts ready)
+  2. data.provider (deployment scripts in preparation)
+  3. rule.engine (deployment scripts in preparation)
+  4. data.aggregator.rt (deployment scripts in preparation)
+  5. data.aggregator.batch (deployment scripts in preparation)
+  6. restful.cache.rt (deployment scripts in preparation)
+  7. restful.cache.batch (deployment scripts in preparation)
+  8. restful.rule.submission (deployment scripts in preparation)
+  9. web.interface (deployment scripts in preparation)
 
 Installation scripts are tested on Ubuntu 12.04 distribution, which is available [here](http://releases.ubuntu.com/12.04/ubuntu-12.04.4-server-amd64.iso). You should have git installed:
 ```
