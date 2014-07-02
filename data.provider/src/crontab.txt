@@ -1,0 +1,8 @@
+00 4 * * * /home/ubuntu/data.provider/src/3.schedule.today.sh USDJPY 
+10 4 * * * /home/ubuntu/data.provider/src/3.schedule.today.sh EURUSD
+20 4 * * * /home/ubuntu/data.provider/src/3.schedule.today.sh AUDUSD
+30 4 * * * /home/ubuntu/data.provider/src/3.schedule.today.sh GBPUSD
+40 4 * * * /home/ubuntu/data.provider/src/3.schedule.today.sh USDCAD
+50 4 * * * /home/ubuntu/data.provider/src/3.schedule.today.sh USDCHF
+00 5 * * * /home/ubuntu/data.provider/src/3.schedule.today.sh NZDUSD
+
