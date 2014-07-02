@@ -33,3 +33,5 @@ Modules should be deployed in the following order:
   7. restful.cache.batch
   8. restful.rule.submission
   9. web.interface
+
+Installation scripts are tested on Ubuntu 12.04 minimal distribution, which is available [here](http://archive.ubuntu.com/ubuntu/dists/precise/main/installer-amd64/current/images/netboot/mini.iso).
