@@ -1,13 +1,14 @@
+#!/usr/bin/python
+
 from flask import Flask, jsonify
 from thread import start_new_thread
-from datetime import timedelta
 import time, datetime, struct
 import cql
 import pytz
-from datetime import timedelta
+import socket
 from flask import make_response, request, current_app
+from datetime import timedelta
 from functools import update_wrapper
-
 
 def crossdomain(origin=None, methods=None, headers=None,
                 max_age=21600, attach_to_all=True,
@@ -55,51 +56,44 @@ con = cql.connect('ec2-54-187-166-118.us-west-2.compute.amazonaws.com',
                 '9160', 'janusz_forex_rt_demo', cql_version='3.1.1')
 cursor = con.cursor()
 
-#tasks = [{'NZDUSD':0}]
-tasks = {'NZDUSD':0}
+tasks = {
+	'AUDUSD':0,
+	'EURUSD':0,
+	'GBPUSD':0,
+	'NZDUSD':0,
+	'USDCAD':0,
+	'USDCHF':0,
+	'USDJPY':0
+	}
 
-def foo(x):
+pairs       = ['AUDUSD', 'EURUSD', 'GBPUSD', 'NZDUSD', 'USDCAD', 'USDCHF', 'USDJPY']
+
+q       = "select issued_at, ask, bid from ticks where pair_day = :key and issued_at > :utc"
+
+def foo(pairs):
 	while True:
-		date = datetime.datetime.utcnow()
+		for p in pairs:
+			date = datetime.datetime.utcnow() - datetime.timedelta(minutes=1)
 
-		today = str(date.year) + "-" + str(date.month).zfill(2) + "-" + str(date.day).zfill(2)
-
-		t = ('NZDUSD',)
-
-		q = "select issued_at, ask, bid from ticks where "
-		q = q + "pair_day = '" + "NZDUSD" + ":" + today + "'"
-		q = q + " and "
-		q = q + " issued_at > '" + today + " " + str(date.hour).zfill(2)
-		q = q +  ":" + str(date.minute - 1).zfill(2) + ":" + str(date.second).zfill(2) + "+0000'"
-		#q = q + " limit 10"
-
-		#print q
-
-		#cursor.execute(q,t)
-		cursor.execute(q)
+			today = str(date.year) + "-" + str(date.month).zfill(2) + "-" + str(date.day).zfill(2)
+			key   = p + ":" + today
+			utc = today + " " + str(date.hour).zfill(2) + ":" + str(date.minute).zfill(2) 
+			utc = utc + ":" + str(date.second).zfill(2) + "+0000"
+	
+			cursor.execute(q, {"key":key, "utc":utc} )
 		
-		#workaround
-		data = cursor.fetchall()
-		for d in data:
-			#d[0] = struct.unpack('!Q', d[0] )[0]/ 1e3 
-			#d[0] = struct.unpack('!Q', d[0] )[0] 
-			d[0] = str(datetime.datetime.fromtimestamp(
-				struct.unpack('!Q', d[0])[0]/1e3 )
-			)
-			#d[0] = str(datetime.datetime.fromtimestamp(
-			#	struct.unpack('!Q', d[0])[0]/1e3 ,
-			#	#pytz.timezone('US/Pacific'))
-			#	pytz.timezone('UTC'))
-			#)
-
-		#export data
-
-		#tasks[0]['NZDUSD'] = data
-		tasks['NZDUSD'] = data
+			#workaround
+			data = cursor.fetchall()
+			print "got " + str(len(data)) + " results from DB for " + p
+			for d in data:
+				d[0] = str(datetime.datetime.fromtimestamp(
+					struct.unpack('!Q', d[0])[0]/1e3 )
+				)
+			tasks[p] = data
 
 		time.sleep(2)
 
-start_new_thread(foo,(tasks,))
+start_new_thread(foo,(pairs,))
 
 app = Flask(__name__)
 
@@ -112,6 +106,7 @@ def get_tasks():
     return jsonify( { 'ticks': tasks } )
 
 if __name__ == '__main__':
-	app.run(debug = True)
-	cursor.close()
-	con.close()
+	#app.debug = True
+	app.run(host=socket.gethostbyname(socket.gethostname()))
+	#cursor.close()
+	#con.close()
