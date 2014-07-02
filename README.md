@@ -34,4 +34,4 @@ Modules should be deployed in the following order:
   8. restful.rule.submission
   9. web.interface
 
-Installation scripts are tested on Ubuntu 12.04 minimal distribution, which is available [here](http://archive.ubuntu.com/ubuntu/dists/precise/main/installer-amd64/current/images/netboot/mini.iso).
+Installation scripts are tested on Ubuntu 12.04 distribution, which is available [here](http://releases.ubuntu.com/12.04/ubuntu-12.04.4-server-amd64.iso).
