@@ -39,7 +39,7 @@ Modules should be deployed, possibly to different physical machines/clusters, in
   8. restful.rule.submission (deployment scripts in preparation)
   9. web.interface (deployment scripts in preparation)
 
-Deployment scripts are tested on Ubuntu 12.04 distribution, which is available [here](http://releases.ubuntu.com/12.04/ubuntu-12.04.4-server-amd64.iso). You should have sudo permissions and have git installed:
+Deployment scripts are tested on Ubuntu 12.04 distribution, which is available [here](http://releases.ubuntu.com/12.04/ubuntu-12.04.4-server-amd64.iso). You should have sudo permissions and git installed:
 ```
 sudo apt-get install git
 ```
