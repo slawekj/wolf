@@ -1,5 +1,13 @@
 #!/bin/bash
 
+if [ -z "$WOLF_DATA_PROVIDER_HOME" ]; then
+        exit 1
+fi
+
+if [ -z "$WOLF_HISTDATA_HOME" ]; then
+        exit 1
+fi
+
 if [ $# -ne 1 ]
 then 
 	echo "usage: $(basename $0) SYMBOL"
@@ -9,9 +17,9 @@ fi
 CAT=/bin/cat
 PYTHON=/usr/bin/python
 
-PATH_TO_CSV=/home/ubuntu/histdata.com/data/csv
-PATH_TO_SRC=/home/ubuntu/data.provider/src
-PATH_TO_LOG=/home/ubuntu/data.provider/log
+PATH_TO_CSV=$WOLF_HISTDATA_HOME/data/csv
+PATH_TO_SRC=$WOLF_DATA_PROVIDER_HOME/src
+PATH_TO_LOG=$WOLF_DATA_PROVIDER_HOME/log
 
 CURR_MONTH=$(TZ="EST" date +"%m")
 PREV_MONTH=$(TZ="EST" date +"%m" --date="1 month ago")
