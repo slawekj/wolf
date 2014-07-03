@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash 
 
 if [ -z "$WOLF_DATA_PROVIDER_HOME" ]; then
 	echo variable WOLF_DATA_PROVIDER_HOME undefined
