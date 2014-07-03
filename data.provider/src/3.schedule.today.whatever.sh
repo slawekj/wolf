@@ -1,10 +1,12 @@
-#!/bin/bash
+#!/bin/bash 
 
 if [ -z "$WOLF_DATA_PROVIDER_HOME" ]; then
+	echo variable WOLF_DATA_PROVIDER_HOME undefined
         exit 1
 fi
 
 if [ -z "$WOLF_HISTDATA_HOME" ]; then
+	echo variable WOLF_HISTDATA_HOME undefined
         exit 1
 fi
 
