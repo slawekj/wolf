@@ -1,5 +1,13 @@
 #!/bin/bash -e
 
+# do I really need autopurge?
+#sudo echo autopurge.purgeInterval=24 >> /etc/zookeeper/conf/zoo.cfg
+#sudo echo autopurge.snapRetainCount=5 >> /etc/zookeeper/conf/zoo.cfg
+sudo /usr/share/zookeeper/bin/zkServer.sh start
+
+# check if zookeeper is running
+echo stat | nc localhost 2181
+
 # run nimbus
 ./apache-storm-0.9.2-incubating/bin/storm nimbus &
 sleep 10
