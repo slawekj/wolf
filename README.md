@@ -34,7 +34,7 @@ git clone https://github.com/slawekj/wolf.git
 Modules should be deployed, possibly to different physical machines/clusters, in the following order:
   1. data.router (deployment scripts ready)
   2. data.provider (deployment scripts ready)
-  3. rule.engine (deployment scripts in preparation)
+  3. rule.engine (deployment scripts ready)
   4. data.aggregator.rt (deployment scripts in preparation)
   5. data.aggregator.batch (deployment scripts in preparation)
   6. restful.cache.rt (deployment scripts in preparation)
