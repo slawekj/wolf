@@ -116,14 +116,14 @@ public class ExecutionBolt extends BaseRichBolt implements SymbolBank {
 
 	@Override
 	public Double evaluateSymbol(String symbol, String symbolModifier) {
-		switch (symbolModifier) {
-		case "BID":
+
+		if ("BID".equals(symbolModifier)) {
 			if (bidPrice.containsKey(symbol)) {
 				return bidPrice.get(symbol);
 			} else {
 				return -1.0;
 			}
-		case "ASK":
+		} else if ("ASK".equals(symbolModifier)) {
 			if (askPrice.containsKey(symbol)) {
 				return askPrice.get(symbol);
 			} else {

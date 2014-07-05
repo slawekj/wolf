@@ -41,16 +41,15 @@ public class RuleTuple {
 		Double operandA = sb.evaluateSymbol(symbol, modifier);
 		if (operandA > 0.0) {
 			Double operandB = threshold;
-			switch (comparator) {
-			case "<":
+
+			if ("<".equals(comparator)) {
 				return operandA < operandB;
-			case ">":
+			} else if (">".equals(comparator)) {
 				return operandA > operandB;
-			case "=":
+			} else if ("=".equals(comparator)) {
 				return operandA == operandB;
-			default:
+			} else
 				return false;
-			}
 		} else {
 			return false;
 		}
