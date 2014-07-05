@@ -1,8 +1,8 @@
-00 4 * * * /home/ubuntu/data.provider/src/3.schedule.today.sh USDJPY 
-10 4 * * * /home/ubuntu/data.provider/src/3.schedule.today.sh EURUSD
-20 4 * * * /home/ubuntu/data.provider/src/3.schedule.today.sh AUDUSD
-30 4 * * * /home/ubuntu/data.provider/src/3.schedule.today.sh GBPUSD
-40 4 * * * /home/ubuntu/data.provider/src/3.schedule.today.sh USDCAD
-50 4 * * * /home/ubuntu/data.provider/src/3.schedule.today.sh USDCHF
-00 5 * * * /home/ubuntu/data.provider/src/3.schedule.today.sh NZDUSD
+01 22 * * * /home/ubuntu/data.provider/src/3.schedule.today.sh USDJPY 
+04 22 * * * /home/ubuntu/data.provider/src/3.schedule.today.sh EURUSD
+07 22 * * * /home/ubuntu/data.provider/src/3.schedule.today.sh AUDUSD
+10 22 * * * /home/ubuntu/data.provider/src/3.schedule.today.sh GBPUSD
+13 22 * * * /home/ubuntu/data.provider/src/3.schedule.today.sh USDCAD
+16 22 * * * /home/ubuntu/data.provider/src/3.schedule.today.sh USDCHF
+19 22 * * * /home/ubuntu/data.provider/src/3.schedule.today.sh NZDUSD
 
