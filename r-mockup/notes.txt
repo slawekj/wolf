@@ -11,10 +11,6 @@ brokerage support
 
 existing trading platrorms for trading, technical and fundamental analysis:
 metatrader is free you can have a demo account (no brokerage needed)
-my account is 
-login 63686
-passwd 4qxfefe
-investor em8lteg
 run: wine "C:\Program Files\MetaTrader 5\terminal64.exe"
 the only option you have is stop.loss and take.profit
 
