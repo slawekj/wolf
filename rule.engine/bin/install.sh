@@ -9,14 +9,6 @@ sudo apt-get install openjdk-7-jdk
 sudo apt-get install zookeeper
 # zookeeper conf is in /etc/zookeeper/conf/zoo.cfg
 
-# do I really need autopurge?
-#sudo echo autopurge.purgeInterval=24 >> /etc/zookeeper/conf/zoo.cfg
-#sudo echo autopurge.snapRetainCount=5 >> /etc/zookeeper/conf/zoo.cfg
-sudo /usr/share/zookeeper/bin/zkServer.sh start
-
-# check if zookeeper is running
-echo stat | nc localhost 2181
-
 # we will need storm
 sudo apt-get install unzip
 wget http://mirror.symnds.com/software/Apache/incubator/storm/apache-storm-0.9.2-incubating/apache-storm-0.9.2-incubating.zip
