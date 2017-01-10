@@ -3,6 +3,7 @@
 # argument 1 is a custom forex pair name
 # argument 2 is a custom month number
 
+import os
 import sys, sched, time, cql, calendar
 from pytz import timezone
 from datetime import datetime
@@ -23,12 +24,17 @@ schema = {
 }
 
 # connect to kafka
-kafka = KafkaClient("ec2-54-183-118-187.us-west-1.compute.amazonaws.com:9092")
+kafka_host = os.getenv('KAFKA_HOST', 'localhost')
+kafka_port = os.getenv('KAFKA_PORT', '9092')
+kafka = KafkaClient(kafka_host + ":" + kafka_port)
 producer = SimpleProducer(kafka)
 
 # connect to database
-con = cql.connect('ec2-54-187-166-118.us-west-2.compute.amazonaws.com',
-		'9160', 'janusz_forex_rt_demo', cql_version='3.1.1')
+cassandra_host = os.getenv('CQLSH_HOST', 'localhost')
+cassandra_port = os.getenv('CQLSH_PORT', '9042')
+broker_string  = os.getenv('BROKER_STRING', 'janusz_forex_rt_demo')
+con = cql.connect(cassandra_host,
+		  cassandra_port, broker_string, cql_version='3.1.1')
 cursor = con.cursor()
 
 # time conversion and stuff

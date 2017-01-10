@@ -1,0 +1,29 @@
+#!/bin/bash
+
+PROJECT_DIR=$HOME/projects
+export PROJECT_DIR=$PROJECT_DIR
+
+CQLSH_HOST=xxx.xxx.xxx.xxx
+export CQLSH_HOST=$CQLSH_HOST
+
+CQLSH_PORT=9042
+export CQLSH_PORT=$CQLSH_PORT
+
+BROKER_STRING=janusz
+export BROKER_STRING=$BROKER_STRING
+
+PATH_TO_SRC=$PROJECT_DIR/wolf/restful.cache.service.batch/src
+export PATH_TO_SRC=$PATH_TO_SRC
+
+PATH_TO_LOG=$PROJECT_DIR/wolf/restful.cache.service.batch/log
+export PATH_TO_LOG=$PATH_TO_LOG
+
+PYTHON=/usr/bin/python
+export PYTHON=$PYTHON
+
+# with a log file, appended
+${PYTHON} ${PATH_TO_SRC}/server.py &>> ${PATH_TO_LOG}/server.log &
+
+# with logging to console
+#${PYTHON} ${PATH_TO_SRC}/server.py 
+

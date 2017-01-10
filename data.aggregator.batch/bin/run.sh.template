@@ -1,0 +1,20 @@
+#!/bin/bash
+
+PROJECT_DIR=$HOME/projects
+export PROJECT_DIR=$PROJECT_DIR
+
+WOLF_DATA_AGGREGATOR_BATCH_HOME=$PROJECT_DIR/wolf/data.aggregator.batch
+export WOLF_DATA_AGGREGATOR_BATCH_HOME=$WOLF_DATA_AGGREGATOR_BATCH_HOME
+
+echo $WOLF_DATA_AGGREGATOR_BATCH_HOME >tmp.txt
+sed -i -e 's/\//\\\//g' tmp.txt
+REPLACE_STRING=`cat tmp.txt`
+sed -e "s/\/home\/ubuntu\/data.aggregator/$REPLACE_STRING/g" $WOLF_DATA_AGGREGATOR_BATCH_HOME/src/crontab.txt > $WOLF_DATA_AGGREGATOR_BATCH_HOME/src/crontab.tmp
+unset REPLACE_STRING
+rm -rf tmp.txt
+
+if [ -f $WOLF_DATA_AGGREGATOR_BATCH_HOME/../data.provider/src/5.crontab.tmp ]; then
+   cat $WOLF_DATA_AGGREGATOR_BATCH_HOME/src/crontab.tmp  $WOLF_DATA_AGGREGATOR_BATCH_HOME/../data.provider/src/5.crontab.tmp | crontab -
+else
+   cat $WOLF_DATA_AGGREGATOR_BATCH_HOME/src/crontab.tmp | crontab -
+fi

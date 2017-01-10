@@ -1,0 +1,3 @@
+ubuntu    4180     1  7 Jul31 ?        01:46:50 java -jar ./build/libs/data.persist.hist-all.jar
+ubuntu    4878     1  0 Jul31 ?        00:01:10 java -jar ./build/libs/data.provider.oanda-all.jar
+ubuntu    7635     1  0 08:24 ?        00:02:06 java -jar ./build/libs/data.persist.oanda-all.jar

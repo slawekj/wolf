@@ -1,0 +1,8 @@
+01 22 * * * /home/fcndev/projects/wolf/data.provider/src/3.schedule.today.sh USDJPY 
+04 22 * * * /home/fcndev/projects/wolf/data.provider/src/3.schedule.today.sh EURUSD
+07 22 * * * /home/fcndev/projects/wolf/data.provider/src/3.schedule.today.sh AUDUSD
+10 22 * * * /home/fcndev/projects/wolf/data.provider/src/3.schedule.today.sh GBPUSD
+13 22 * * * /home/fcndev/projects/wolf/data.provider/src/3.schedule.today.sh USDCAD
+16 22 * * * /home/fcndev/projects/wolf/data.provider/src/3.schedule.today.sh USDCHF
+19 22 * * * /home/fcndev/projects/wolf/data.provider/src/3.schedule.today.sh NZDUSD
+

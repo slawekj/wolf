@@ -2,7 +2,7 @@ package rule.engine;
 
 import org.apache.log4j.Logger;
 
-import backtype.storm.tuple.Tuple;
+import org.apache.storm.tuple.Tuple;
 
 public class RuleTuple {
 	private static final Logger LOG = Logger.getLogger(RuleTuple.class);

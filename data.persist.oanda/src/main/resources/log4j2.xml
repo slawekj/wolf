@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="ERROR">
+
+    <Properties>
+        <Property name="log-path">logs</Property>
+    </Properties>
+
+    <Appenders>
+
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+
+            <PatternLayout>
+                <Pattern>%d{ISO8601} | [%t] | %highlight{%-5level: %msg | %throwable{full}}%n</Pattern>
+            </PatternLayout>
+
+        </Console>
+
+
+        <RollingFile name="async-log" fileName="${log-path}/data-persist-oanda.log"
+                                      filePattern="${log-path}/data-persist-oanda-%d{yyyy-MM-dd}.log">
+
+            <PatternLayout>
+                <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
+            </PatternLayout>
+
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+
+            <DefaultRolloverStrategy max="10"/>
+
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+
+        <Root level="ERROR" additivity="false">
+            <AppenderRef ref="async-log"/>
+        </Root>
+
+        <Logger name="com.fcnlabs.persist.PersistOandaTicks" level="INFO" includeLocation="false" additivity="false">
+            <AppenderRef ref="async-log"/>
+        </Logger>
+
+    </Loggers>
+
+</Configuration>

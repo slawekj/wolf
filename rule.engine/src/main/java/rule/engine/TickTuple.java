@@ -1,6 +1,6 @@
 package rule.engine;
 
-import backtype.storm.tuple.Tuple;
+import org.apache.storm.tuple.Tuple;
 
 public class TickTuple {
 	private SymbolBank sb;

@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import os
 from flask import Flask, json, jsonify, request
 import socket, time
 from jsonschema import validate, ValidationError
@@ -52,7 +53,9 @@ def crossdomain(origin=None, methods=None, headers=None,
 
 
 # connect to kafka
-kafka = KafkaClient("ec2-54-183-118-187.us-west-1.compute.amazonaws.com:9092")
+kafka_host = os.getenv('KAFKA_HOST', 'localhost')
+kafka_port = os.getenv('KAFKA_PORT', '9092')
+kafka = KafkaClient(kafka_host + ":" + kafka_port)
 producer = SimpleProducer(kafka)
 
 topic = 'rules'

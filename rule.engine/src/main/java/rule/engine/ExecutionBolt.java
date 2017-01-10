@@ -1,26 +1,21 @@
 package rule.engine;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.storm.task.OutputCollector;
+import org.apache.storm.task.TopologyContext;
+import org.apache.storm.topology.OutputFieldsDeclarer;
+import org.apache.storm.topology.base.BaseRichBolt;
+import org.apache.storm.tuple.Fields;
+import org.apache.storm.tuple.Tuple;
 
-import org.apache.log4j.Logger;
-
-import backtype.storm.task.OutputCollector;
-import backtype.storm.task.TopologyContext;
-import backtype.storm.topology.OutputFieldsDeclarer;
-import backtype.storm.topology.base.BaseRichBolt;
-import backtype.storm.tuple.Fields;
-import backtype.storm.tuple.Tuple;
+import java.util.*;
 
 public class ExecutionBolt extends BaseRichBolt implements SymbolBank {
 	/**
 	 * 
 	 */
-	private static final Logger LOG = Logger.getLogger(ExecutionBolt.class);
+	private static final Logger LOG = LogManager.getLogger();
 	OutputCollector _collector;
 	ApiExecutor ae = new ApiExecutor();
 

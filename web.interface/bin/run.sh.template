@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd ../src
+
+php -S ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com:8000
+

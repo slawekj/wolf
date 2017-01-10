@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import os
 from flask import Flask, jsonify
 from thread import start_new_thread
 import time, datetime, struct
@@ -52,8 +53,12 @@ def crossdomain(origin=None, methods=None, headers=None,
     return decorator
 
 # connect to database
-con = cql.connect('ec2-54-187-166-118.us-west-2.compute.amazonaws.com',
-                '9160', 'janusz_forex_rt_demo', cql_version='3.1.1')
+cassandra_host = os.getenv('CQLSH_HOST', 'localhost')
+cassandra_port = os.getenv('CQLSH_PORT', '9042')
+broker_string  = os.getenv('BROKER_STRING', 'janusz_forex_rt_demo')
+
+con = cql.connect(cassandra_host, cassandra_port, broker_string, cql_version='3.1.1')
+
 cursor = con.cursor()
 
 tasks = {

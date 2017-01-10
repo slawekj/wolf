@@ -1,0 +1,41 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.3'
+    }
+}
+
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'idea'
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.apache.logging.log4j:log4j-api:2.5"
+    compile "org.apache.logging.log4j:log4j-1.2-api:2.5"
+    compile "org.slf4j:slf4j-api:1.7.19"
+    compile "org.apache.logging.log4j:log4j-jcl:2.5"
+    compile "org.apache.logging.log4j:log4j-slf4j-impl:2.5"
+    compile "org.apache.logging.log4j:log4j-jul:2.5"
+    compile "org.apache.logging.log4j:log4j-core:2.5"
+
+    compile 'org.codehaus.groovy:groovy-all:2.4.7'
+    compile 'com.googlecode.json-simple:json-simple:1.1.1'
+    compile 'com.datastax.cassandra:cassandra-driver-core:3.1.0'
+
+    testCompile 'junit:junit:4.12'
+}
+
+shadowJar {
+    manifest {
+        attributes 'Main-Class': 'com.fcnlabs.analytics.rt.CalcHistTPS'
+        attributes 'Class-Path': 'com/fcnlabs/analytics libs/ lib/'
+    }
+}
